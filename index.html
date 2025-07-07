@@ -1,0 +1,893 @@
+<!-- Optimized by AI | Clean Structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Paper Wizard</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Real Estate Feasibility Evaluator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 70, 130, 0.1);
+            padding: 30px 40px;
+            margin-bottom: 30px;
+        }
+        .card h2 {
+            font-size: 22px;
+            color: #007bff;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #003366;
+        }
+        input, textarea, select {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 12px 25px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            margin-right: 10px;
+        }
+        button:disabled {
+            background-color: #a0cffa;
+            cursor: not-allowed;
+        }
+        button.secondary {
+            background-color: #6c757d;
+        }
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+        }
+        button.secondary:hover:not(:disabled) {
+            background-color: #5a6268;
+            box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+        }
+        p.tip { font-size: 14px; color: #666; margin-top: 0; }
+        .output-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            margin-top: 20px;
+            min-height: 50px;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 10px 20px;
+        }
+        .output-box h3, .output-box h4 {
+            margin-top: 25px;
+            color: #003366;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .output-box h4 {
+            font-size: 16px;
+            color: #0056b3;
+        }
+        .output-box p, .output-box li, .output-box td, .output-box th {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #555;
+        }
+        .output-box .strategy-box, .output-box .verdict-box, .output-box .inference-box {
+            background-color: #e7f3ff;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .output-box .verdict-box {
+            background-color: #fff9e6;
+            border-left-color: #ffc107;
+        }
+        .output-box .inference-box {
+            background-color: #e6f9f1;
+            border-left-color: #28a745;
+        }
+        .output-box .verdict-box strong, .output-box .inference-box strong {
+            color: #c79100;
+            font-weight: 900;
+            font-size: 18px;
+        }
+        .output-box .inference-box strong {
+            color: #155724;
+        }
+        .output-box ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .output-box ul li::before {
+            content: '?';
+            color: #28a745;
+            font-weight: bold;
+            display: inline-block;
+            width: 1.2em;
+            margin-left: -1.2em;
+        }
+        .output-box .data-unavailable {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            padding: 10px;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        .loading { font-weight: bold; color: #007bff; padding: 20px; }
+        .verification-details {
+            font-size: 16px;
+            line-height: 1.8;
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .verification-details strong {
+            color: #003366;
+        }
+        .instructions-card {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d7ff;
+            border-radius: 15px;
+            padding: 20px 40px;
+            margin-bottom: 30px;
+        }
+        .instructions-card h2 {
+            color: #0056b3;
+            border-bottom: none;
+            font-size: 20px;
+        }
+        .instructions-card ol {
+            padding-left: 20px;
+        }
+        .instructions-card li {
+            margin-bottom: 10px;
+            color: #004a99;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        /* CAPTCHA Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px 30px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        #captchaText {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #eee;
+            border-radius: 8px;
+            user-select: none;
+            font-family: 'Courier New', Courier, monospace;
+            text-decoration: line-through;
+            color: #555;
+        }
+        #captchaError {
+            color: #dc3545;
+            display: none;
+            margin-top: -5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>RP Real Estate Feasibility Evaluator</h1>
+
+        <div class="instructions-card">
+            <h2>How to Use This Tool</h2>
+            <ol>
+                <li>Search for your desired location on Google Maps and paste the URL into the "Input Location" box below. RP will automatically detect the coordinates.</li>
+                <li>A "Location Verification" window will appear with the diagnosed administrative details. If correct, click "Confirm & Proceed".</li>
+                <li>Select the type of development you are evaluating from the dropdown menu and, optionally, enter the project's land area.</li>
+                <li>Click on any of the report buttons to generate a detailed analysis. You can generate multiple reports for the same location.</li>
+                <li>Once you have the reports you need, click "Download as Word Doc" to save a complete, combined report to your device. Please note that this web application does not save your search history or reports.</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>1. Input Location</h2>
+            <p class="tip">Paste a Google Maps URL. RP will diagnose the location details for your confirmation.</p>
+            <textarea id="mapUrlInput" placeholder="Paste Google Maps URL here..." rows="3" oninput="diagnoseLocation()"></textarea>
+        </div>
+
+        <div class="card" id="verificationCard" style="display: none;">
+            <h2>2. Location Verification</h2>
+            <div id="locationDetails" class="verification-details">Diagnosing location...</div>
+            <div id="confirmationControls" style="display: none; margin-top: 20px;">
+                <p class="tip">Please confirm the details above are correct before proceeding.</p>
+                <button id="confirmBtn" onclick="confirmLocation()">Confirm & Proceed</button>
+            </div>
+        </div>
+
+        <div class="card" id="analysisControls" style="display: none;">
+            <h2>3. Select Development Type & Run Analysis</h2>
+            <select id="developmentType">
+                <option value="Residential Group Housing">Residential Group Housing</option>
+                <option value="Plotted Development">Plotted Development</option>
+                <option value="Affordable Housing">Affordable Housing</option>
+                <option value="Villas / High-end Homes">Villas / High-end Homes</option>
+                <option value="Shopping Mall / Commercial Complex">Shopping Mall / Commercial Complex</option>
+                <option value="Industrial Development / Warehousing">Industrial Development / Warehousing</option>
+                <option value="Mixed Land Use">Mixed Land Use</option>
+                <option value="IT Park / Office Space">IT Park / Office Space</option>
+                <option value="Hotel / Hospitality">Hotel / Hospitality</option>
+                <option value="Township / Integrated Project">Township / Integrated Project</option>
+            </select>
+             <input type="number" id="plotSize" placeholder="Optional: Enter Plot Size in Acres">
+            <div>
+                <button id="btnFull" onclick="runFullFeasibility()">Generate Full Feasibility Report</button>
+                <button id="btnMarket" onclick="runMarketAnalysis()">Run Focused Market Analysis</button>
+                <button id="btnInfra" onclick="runInfrastructureAnalysis()">Infrastructure & Connectivity Report</button>
+                <button id="btnLegal" onclick="runLegalAnalysis()" class="secondary">Detailed Legal Report</button>
+                <button id="btnZoning" onclick="runZoningAnalysis()" class="secondary">Land Use Report</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Feasibility Analysis Report</h2>
+            <div id="feasibilityOutput" class="output-box">Awaiting analysis...</div>
+        </div>
+        
+        <div class="card">
+            <h2>Market & Competitor Analysis Report</h2>
+            <div id="marketOutput" class="output-box">Awaiting analysis...</div>
+        </div>
+
+        <div class="card">
+            <h2>Infrastructure & Connectivity Report</h2>
+            <div id="infraOutput" class="output-box">Awaiting analysis...</div>
+        </div>
+
+        <div class="card">
+            <h2>Legal & Regulatory Report</h2>
+            <div id="legalOutput" class="output-box">Awaiting analysis...</div>
+        </div>
+
+        <div class="card">
+            <h2>Land Use & Zoning Report</h2>
+            <div id="zoningOutput" class="output-box">Awaiting analysis...</div>
+        </div>
+
+        <div class="card" style="background-color: #fffbe6; border-left: 5px solid #f59e0b;">
+            <h2 style="color: #d97706;">A Note on This Analysis</h2>
+            <p style="font-size: 16px; line-height: 1.7; color: #b45309;">
+                The reports generated by RP are the result of an advanced AI analysis of publicly available data and are intended for preliminary, informational purposes only. This is not a substitute for professional due diligence. Real estate decisions carry significant financial risk. We strongly advise consulting with qualified legal, financial, and real estate professionals and conducting a thorough on-ground survey before making any investment or business decision.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>Download Report</h2>
+            <p class="tip">Generate reports first, then click here to download them as a combined Word document.</p>
+            <button onclick="showCaptcha()">Download as Word Doc</button>
+        </div>
+    </div>
+
+    <!-- CAPTCHA Modal -->
+    <div id="captchaModal" class="modal">
+        <div class="modal-content">
+            <h4>Please Verify You Are Human</h4>
+            <div id="captchaText"></div>
+            <input type="text" id="captchaInput" placeholder="Enter the text above">
+            <p id="captchaError">Incorrect. Please try again.</p>
+            <button onclick="verifyCaptcha()">Verify & Download</button>
+            <button onclick="hideCaptcha()" class="secondary">Cancel</button>
+        </div>
+    </div>
+
+  <script>
+    let verifiedLocationData = null; // To store confirmed location data
+    let currentCaptcha = '';
+
+    async function generateAIResponse(prompt, outputId) {
+        const outputElement = document.getElementById(outputId);
+        outputElement.innerHTML = '<div class="loading">RP is processing... Your report will appear live below.</div>';
+
+        // **MODIFIED: Call our own backend server instead of Google directly**
+        const backendEndpoint = 'https://rp-backend-nguz.onrender.com/api/generate';
+
+        try {
+            const response = await fetch(backendEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt: prompt })
+            });
+
+            if (!response.ok) throw new Error(`API Error: ${response.status} ${response.statusText}`);
+            
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let accumulatedText = "";
+            outputElement.innerHTML = "";
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                
+                // The backend now streams the text directly, simplifying the frontend logic
+                accumulatedText += decoder.decode(value, {stream: true});
+                outputElement.innerHTML = accumulatedText;
+            }
+
+        } catch (error) {
+            outputElement.innerHTML = `<p class="data-unavailable">Error communicating with the server: ${error.message}</p>`;
+            console.error('API Call Failed:', error);
+        }
+    }
+
+    function extractCoordinatesFromUrl(url) {
+        if (!url) return null;
+        const match = url.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+        return match ? { lat: parseFloat(match[1]), lng: parseFloat(match[2]) } : null;
+    }
+
+    async function diagnoseLocation() {
+        const url = document.getElementById('mapUrlInput').value;
+        const coords = extractCoordinatesFromUrl(url);
+        const verificationCard = document.getElementById('verificationCard');
+        const locationDetailsDiv = document.getElementById('locationDetails');
+        const confirmationControls = document.getElementById('confirmationControls');
+        const analysisControls = document.getElementById('analysisControls');
+
+        if (!coords) {
+            verificationCard.style.display = 'none';
+            analysisControls.style.display = 'none';
+            return;
+        }
+
+        verificationCard.style.display = 'block';
+        locationDetailsDiv.innerHTML = '<div class="loading">Diagnosing location from coordinates...</div>';
+        confirmationControls.style.display = 'none';
+        analysisControls.style.display = 'none';
+        verifiedLocationData = null;
+
+        try {
+            // Using OpenStreetMap's free Nominatim API for reverse geocoding
+            const geoApiUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${coords.lat}&lon=${coords.lng}&countrycodes=in`;
+            const response = await fetch(geoApiUrl);
+            if (!response.ok) throw new Error('Reverse geocoding service failed.');
+            
+            const data = await response.json();
+            if (data.error || data.address.country_code !== 'in') {
+                 throw new Error('This application is restricted to locations within India only.');
+            }
+
+            const address = data.address;
+            const locality = address.village || address.suburb || address.neighbourhood || address.hamlet || address.city_district || 'N/A';
+            const tehsil = address.county || address.state_district || 'N/A'; // Tehsil is often mapped to 'county' or 'state_district'
+            const district = address.state_district || address.city || 'N/A';
+            const state = address.state || 'N/A';
+
+            verifiedLocationData = { coords, locality, tehsil, district, state };
+
+            locationDetailsDiv.innerHTML = `
+                <strong>Locality:</strong> ${locality}<br>
+                <strong>Tehsil / Taluk:</strong> ${tehsil}<br>
+                <strong>District:</strong> ${district}<br>
+                <strong>State:</strong> ${state}
+            `;
+            confirmationControls.style.display = 'block';
+
+        } catch (error) {
+            locationDetailsDiv.innerHTML = `<p class="data-unavailable">${error.message}</p>`;
+        }
+    }
+
+    function confirmLocation() {
+        if (verifiedLocationData) {
+            document.getElementById('analysisControls').style.display = 'block';
+            document.getElementById('confirmBtn').disabled = true;
+            document.getElementById('confirmBtn').textContent = 'Confirmed';
+        }
+    }
+
+    function getBasePrompt() {
+        if (!verifiedLocationData) {
+            alert("Please confirm the location first.");
+            return null;
+        }
+        const { coords, locality, tehsil, district, state } = verifiedLocationData;
+        const developmentType = document.getElementById('developmentType').value;
+        const plotSize = document.getElementById('plotSize').value;
+
+        return {
+            coords,
+            developmentType,
+            plotSize,
+            locationString: `locality: ${locality}, tehsil: ${tehsil}, district: ${district}, state: ${state}`
+        };
+    }
+
+    async function runFullFeasibility() {
+        const base = getBasePrompt();
+        if (!base) return;
+        const prompt = `
+            You are RP, a Tier-1 real estate consultant in India. Generate a professional, data-intensive Feasibility Report for a proposed "${base.developmentType}" project at location: ${base.locationString} (Coordinates: ${base.coords.lat}, ${base.coords.lng}).
+            Your entire response must be a single, self-contained HTML snippet. Start your response directly with the first HTML tag. Do not output any text before the first <h3> tag. Do not use markdown. Do not use curly braces {} in your output.
+
+            <h3>Part 1: Executive Summary</h3>
+            <p><strong>Location Context:</strong> This report analyzes the feasibility for a ${base.developmentType} at the specified location in ${base.locality}, ${base.district}, a region known for its key characteristic of {analyze and state the key economic or developmental characteristic of this region}.</p>
+            <div class="verdict-box"><h3>Overall Recommendation</h3><p>Based on the consolidated findings, RP's recommendation is: <strong>{choose one: Prime Opportunity, Proceed with Caution, or Not Recommended}</strong>. {provide a 2-3 line justification for your recommendation, citing at least two specific data points from your analysis}.</p></div>
+            
+            <h3>Part 2: Micro-Market Environmental Scan (Centered on Coordinates)</h3>
+            <p>A detailed analysis of the immediate surroundings, focused on factors relevant to a ${base.developmentType} development, centered on the coordinates.</p>
+            <h4>0-1 km Radius (Immediate Vicinity):</h4>
+            <ul>
+                <li>{Find and list specific, named real estate landmarks like other housing societies, commercial buildings, villages, or industrial units within this radius, including their approximate distance from the coordinates.}</li>
+            </ul>
+            <h4>1-3 km Radius (Local Catchment):</h4>
+            <ul>
+                <li>{Find and list specific, named social infrastructure like schools, hospitals, and major markets within this radius, including their approximate distance from the coordinates.}</li>
+            </ul>
+            <h4>3-5 km Radius (Macro Influence):</h4>
+            <ul>
+                <li>{Find and list specific, named connectivity infrastructure like highway entry/exit points, metro stations, or railway stations within this radius, including their approximate distance from the coordinates.}</li>
+            </ul>
+
+            <h3>Part 3: High-Level Financial Snapshot (RP Estimate)</h3>
+            <p>This is a preliminary, RP-generated estimate for initial assessment. All figures require professional validation.</p>
+            <div class="strategy-box">
+                <h4>Deal-at-a-Glance</h4>
+                <ul>
+                    <li><strong>Assumed Plot Size:</strong> ${base.plotSize ? base.plotSize + ' Acres' : '5 Acres (Assumed)'}</li>
+                    <li><strong>Inferred FAR/FSI:</strong> {estimate a specific FAR based on the likely zoning}.</li>
+                    <li><strong>Est. Total Developable Area:</strong> {calculate: Plot Size in Sq.Ft. * FAR}.</li>
+                    <li><strong>Est. Prevailing Market Value:</strong> {provide a specific estimated land rate or capital value for a ${base.developmentType}}.</li>
+                    <li><strong>Est. Gross Development Value (GDV):</strong> {calculate: Developable Area * Mid-point of Capital Value}.</li>
+                    <li><strong>Initial Verdict:</strong> Based on the high-level GDV and prevailing market rates, the project appears {choose one: Financially Viable, Marginally Viable, or Challenging}.</li>
+                </ul>
+            </div>
+
+            <h3>Part 4: SWOT & Risk Assessment by RP</h3>
+            <p><strong>Strengths:</strong></p><ul><li>{list at least one specific strength}.</li></ul>
+            <p><strong>Weaknesses:</strong></p><ul><li>{list at least one specific weakness}.</li></ul>
+            <p><strong>Opportunities:</strong></p><ul><li>{list at least one specific opportunity}.</li></ul>
+            <p><strong>Threats:</strong></p><ul><li>{list at least one specific threat}.</li></ul>
+        `;
+        await generateAIResponse(prompt, 'feasibilityOutput');
+    }
+
+    async function runMarketAnalysis() {
+        const base = getBasePrompt();
+        if (!base) return;
+        const prompt = `
+            **ABSOLUTE RULE: Your final output must not contain any placeholders or bracketed instructions. Every instruction is a command for you to execute and replace with factual data. You must find real data for every field. If, after an exhaustive search, specific data for a sub-point is truly unavailable, you must state 'Data Not Publicly Available' for that sub-point only, but you MUST find the main project details.**
+            **CRITICAL FORMATTING RULE: Your entire response must be a single, self-contained HTML snippet. Do not write the word 'HTML' or use markdown code blocks. Start your response directly with the first HTML tag.**
+            You are RP, a specialist Market Intelligence Analyst for Indian real estate. For the location at ${base.locationString} (Coordinates: ${base.coords.lat}, ${base.coords.lng}), generate a highly detailed and data-rich Market Analysis for a "${base.developmentType}" project.
+
+            **MANDATORY DATA INTEGRITY & SPATIAL QUERY MANDATE:**
+            1.  **Coordinate-First:** You must use the provided coordinates (${base.coords.lat}, ${base.coords.lng}) as the absolute, non-negotiable central point for all "nearby" searches and distance calculations.
+            2.  **Data Freshness Mandate:** For all pricing data, you MUST prioritize information from the last 6 months (from the current date of July 2025). You are forbidden from using dates in the future.
+            3.  **Pricing Source Mandate:** You MUST provide a verifiable source for each price point. This source must be a clickable URL linking to the portal listing, developer page, or news article.
+            4.  **Pricing Fallback:** If recent official developer pricing is unavailable, you are REQUIRED to find and report the most recent resale prices or broker listings for similar properties in the immediate vicinity to establish a current price benchmark, including the source link and date.
+
+            **MANDATORY WORKFLOW:**
+            1.  **Competitor Search:** Find a minimum of 6 and up to 10 formal competitor projects for a "${base.developmentType}" within a 15km radius.
+            2.  **Fallback Protocol:** If you cannot find at least two formal projects, you MUST execute the "Informal Market & Rate Analysis" section. DO NOT show a blank table.
+
+            --- START REPORT ---
+
+            <h3>1. Target Audience & Demand Profile</h3>
+            <p>RP's analysis of the likely customer segment for a ${base.developmentType} in this micro-market:</p>
+            <ul>
+                <li><strong>Primary Customer Profile:</strong> {Analyze and describe the target customer.}</li>
+                <li><strong>Key Demand Drivers:</strong> {Identify specific drivers for this audience.}</li>
+            </ul>
+
+            <h3>2. Market Health & Price Trends</h3>
+            <p>A snapshot of the local market's performance and trajectory.</p>
+            <ul>
+                <li><strong>Recent Price Trend (Last 6 Months):</strong> {You MUST analyze and report the approximate percentage change in property values for similar properties in this micro-market over the last 6 months. You must cite the source type for this data.}</li>
+                <li><strong>Sales Velocity / Absorption Rate:</strong> {Analyze and report on how quickly properties are selling, citing the source type for this data.}</li>
+            </ul>
+
+            <h3>3. Competitor Analysis</h3>
+            
+            {Execute Step 2 & 3 here. Based on your findings, provide ONE of the following two sections.}
+
+            [START SECTION FOR FORMAL ANALYSIS]
+            <h4>Formal Competitor Analysis</h4>
+            <p>RP has identified and ranked the closest comparable formal projects to the subject coordinates.</p>
+            <div class="inference-box">
+                <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+                    <tr style="background-color:#e9ecef;">
+                        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Project Name & Distance</th>
+                        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Developer</th>
+                        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Status</th>
+                        <th style="border: 1px solid #ccc; padding: 8px; text-align: left;">Indicative Price & Verifiable Source</th>
+                    </tr>
+                    {Generate 6 to 10 table rows with real data for each competitor found. The 'Indicative Price & Verifiable Source' column MUST contain the price, the source name, the date (Month Year), and a clickable URL to the source.}
+                </table>
+            </div>
+            [END SECTION FOR FORMAL ANALYSIS]
+
+            [START SECTION FOR INFORMAL ANALYSIS]
+            <h4>Informal Market & Rate Analysis</h4>
+            <p>Fewer than two significant formal competitor projects were found. RP is now conducting an analysis of the local informal market.</p>
+            <div class="inference-box">
+                <h5>Indicative Property Rates in the Vicinity</h5>
+                <p>The following are estimated prevailing rates in the local market. These require on-ground verification.</p>
+                <ul>
+                    <li><strong>Agricultural Land:</strong> {Find and state an approximate rate in ? per acre or ? per bigha.}</li>
+                    <li><strong>Residential Plots in Local Colonies:</strong> {Find and state an approximate rate in ? per square yard.}</li>
+                </ul>
+            </div>
+            [END SECTION FOR INFORMAL ANALYSIS]
+
+            <h3>4. Strategic Market Recommendation by RP</h3>
+            <div class="verdict-box"><h3>Market Demand Verdict: <strong>{Choose one: Strong, Moderate, or Weak Demand}</strong></h3><p>{Justify the verdict with data from the analysis above.}</p></div>
+            <div class="strategy-box"><h3>Positioning Strategy</h3><ul><li>{Suggest a specific, actionable USP based on the competitive landscape or lack thereof.}</li></ul></div>
+        `;
+        await generateAIResponse(prompt, 'marketOutput');
+    }
+
+    async function runInfrastructureAnalysis() {
+        const base = getBasePrompt();
+        if (!base) return;
+        const prompt = `
+            **ABSOLUTE RULE: Your final output must not contain any square brackets. Every instruction in this template is a command for you to execute and replace with factual data. Do not output the instructions themselves.**
+            **CRITICAL FORMATTING RULE: Your entire response must be a single, self-contained HTML snippet. Do not write the word 'HTML' or use markdown code blocks. Start your response directly with the first HTML tag.**
+            You are RP, a specialist in infrastructure and logistics analysis in India. For the location at ${base.locationString} (Coordinates: ${base.coords.lat}, ${base.coords.lng}), generate a detailed 'Infrastructure & Connectivity Report'. 
+            **MANDATORY SPATIAL QUERY MANDATE:** You must use the provided coordinates (${base.coords.lat}, ${base.coords.lng}) as the absolute, non-negotiable central point for all distance calculations. All distances must be calculated from these exact coordinates.
+
+            <h3>1. Road & Highway Connectivity</h3>
+            <p>Analysis of major road networks influencing the site:</p>
+            <ul>
+                <li><strong>Primary Highway/Expressway:</strong> {identify the main arterial road and state its distance from the site}.</li>
+                <li><strong>Supporting Road Network:</strong> {describe the secondary roads connecting the site to the main highway}.</li>
+                <li><strong>Major Economic Corridors:</strong> {identify if the site is near major national corridors and state the distance, then explain the impact}.</li>
+            </ul>
+
+            <h3>2. Public Transit Analysis</h3>
+            <p>Assessment of public transportation infrastructure:</p>
+            <ul>
+                <li><strong>Metro/RRTS Connectivity:</strong> {identify the nearest operational or under-construction Metro or RRTS station, name the line, and state its distance}.</li>
+                <li><strong>Railway Connectivity:</strong> {identify the nearest major railway station and state its distance}.</li>
+                <li><strong>Airport Connectivity:</strong> {identify the nearest airport and state its distance}.</li>
+            </ul>
+
+            <h3>3. Future & Under-Construction Projects (Critical Insights)</h3>
+            <p>RP's analysis of planned infrastructure upgrades that will transform the area:</p>
+            <div class="inference-box">
+                <h4>Upcoming Catalysts</h4>
+                <ul>
+                    <li><strong>{find and name at least one major upcoming project}:</strong> {describe the project, its current status, and its potential impact on the site's connectivity and value. State the distance to the proposed alignment if available}.</li>
+                </ul>
+            </div>
+
+            <h3>4. Utility Infrastructure</h3>
+            <p>A high-level assessment of essential services:</p>
+            <ul>
+                <li><strong>Electricity:</strong> {comment on the general power supply situation in the district and name the distribution company}.</li>
+                <li><strong>Water Supply & Sewage:</strong> {comment on the source of water and the status of sewage networks}.</li>
+            </ul>
+
+            <div class="verdict-box">
+                <h3>RP's Connectivity Score & Verdict</h3>
+                <p><strong>Overall Connectivity Score: {provide a score out of 10}.</strong></p>
+                <p>{justify the score with specific distances from your analysis}.</p>
+            </div>
+        `;
+        await generateAIResponse(prompt, 'infraOutput');
+    }
+    
+    async function runLegalAnalysis() {
+        const base = getBasePrompt();
+        if (!base) return;
+        const prompt = `
+            **ABSOLUTE RULE: Your final output must not contain any square brackets. Every instruction in this template is a command for you to execute and replace with factual data. Do not output the instructions themselves.**
+            **CRITICAL FORMATTING RULE: Your entire response must be a single, self-contained HTML snippet. Do not write the word 'HTML' or use markdown code blocks. Start your response directly with the first HTML tag.**
+            You are RP, a top-tier legal and real estate analyst in India. For the location at ${base.locationString}, generate a factual and actionable 'Legal & Regulatory Report'. This is for a professional developer, so be specific and data-driven.
+
+            **MANDATORY WORKFLOW:**
+            1.  **Identify Jurisdictional Offices:** Pinpoint the specific government offices that a developer must engage with for this location.
+            2.  **Provide Contact Info:** For each office, you MUST provide the official website.
+            3.  **Detail Financials & Legal Acts:** Find and state the applicable government Circle Rates, Stamp Duty percentages, and reference the specific acts or bylaws that govern them.
+            4.  **Create Actionable Checklist:** List the key approvals and reference the governing laws for each.
+
+            --- START REPORT ---
+
+            <h3>1. Jurisdictional Authority & Contact Details</h3>
+            <p>For any property transaction and development at this location, the following government offices are key:</p>
+            <div class="inference-box">
+                <h4>Primary Planning & Development Authority</h4>
+                <ul>
+                    <li><strong>Authority Name:</strong> {Execute Step 1: Identify the specific authority}.</li>
+                    <li><strong>Official Website:</strong> <a href="{Execute Step 2: Find and provide the official, verifiable URL}" target="_blank">{Provide the official website link here}</a></li>
+                </ul>
+                <h4>Land & Revenue Registration</h4>
+                <ul>
+                    <li><strong>Sub-Registrar Office (SRO):</strong> {Identify the specific SRO that governs '${base.locality}'}.</li>
+                    <li><strong>Tehsil Office:</strong> {Identify the Tehsil office for '${base.tehsil}'}.</li>
+                    <li><strong>District Website:</strong> <a href="{Find and provide the official district website}" target="_blank">{Provide the official district website link here}</a></li>
+                </ul>
+            </div>
+
+            <h3>2. Property Valuation, Stamp Duty & Key Bylaws</h3>
+            <p>RP's analysis of the applicable government-notified rates and the laws governing them in <strong>${base.state}</strong>:</p>
+            <ul>
+                <li><strong>Circle Rates:</strong>
+                    <ul>
+                        <li><strong>Governing Law:</strong> Circle rates are typically fixed under the <strong>{Find and state the governing act}</strong>.</li>
+                        <li><strong>Agricultural Land Rate:</strong> The current circle rate for agricultural land in or around '${base.locality}' is approximately <strong>{Find and state the rate in ? per bigha or ? per acre}</strong>.</li>
+                        <li><strong>Non-Agricultural Land Rate:</strong> The current circle rate is approximately <strong>{Find and state the rate in ? per square meter or ? per square yard}</strong>.</li>
+                    </ul>
+                </li>
+                <li><strong>Stamp Duty & Registration:</strong>
+                    <ul>
+                        <li><strong>Current Stamp Duty:</strong> <strong>{Find and state the percentage}</strong> as per the {Name of State} Stamp Act.</li>
+                        <li><strong>Registration Fee:</strong> <strong>{Find and state the percentage}</strong> of the property value, noting any cap.</li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <h3>3. Key Development Laws & Regulations</h3>
+            <p>A developer must comply with the following legal framework:</p>
+            <ul>
+                <li><strong>Master Plan & Zonal Regulations:</strong> All development must conform to the <strong>{Name of Master Plan}</strong>, which dictates land use, FAR, ground coverage, setbacks, and height.</li>
+                <li><strong>State Urban Planning Act:</strong> The <strong>{Name the specific state act}</strong> empowers the development authority to grant approvals.</li>
+                <li><strong>National Building Code of India (NBC):</strong> Compliance with the latest version of the NBC is mandatory for structural design, fire safety, and other building standards.</li>
+                <li><strong>State Apartment Ownership Act:</strong> The <strong>{Name the specific state act}</strong> governs the rights and responsibilities of promoters and allottees.</li>
+                <li><strong>Environmental Laws:</strong> The <strong>Environment (Protection) Act, 1986</strong> and associated rules are critical for obtaining Environmental Clearance (EC).</li>
+            </ul>
+
+            <div class="verdict-box">
+                <h3>Legal Disclaimer from RP</h3>
+                <p>This is a preliminary report by RP and not legal advice. A thorough title search, verification of land records (Khata/Khasra), and formal legal due diligence by a qualified real estate lawyer is mandatory before any financial commitment.</p>
+            </div>
+        `;
+        await generateAIResponse(prompt, 'legalOutput');
+    }
+
+    async function runZoningAnalysis() {
+        const base = getBasePrompt();
+        if (!base) return;
+        const prompt = `
+            **ABSOLUTE RULE: Your final output must not contain any square brackets. Every instruction in this template is a command for you to execute and replace with factual data. Do not output the instructions themselves.**
+            **CRITICAL FORMATTING RULE: Your entire response must be a single, self-contained HTML snippet. Do not write the word 'HTML' or use markdown code blocks. Start your response directly with the first HTML tag.**
+            You are RP, an expert GIS and Urban Planning Specialist. Your task is to perform a definitive Land Use and Zoning analysis for the location: ${base.locationString} (Coordinates: ${base.coords.lat}, ${base.coords.lng}).
+
+            **MANDATORY GIS WORKFLOW - DO NOT DEVIATE:**
+            1.  **IDENTIFY GOVERNING AUTHORITY:** Based on the provided district ('${base.district}') and state ('${base.state}'), first determine the primary Development Authority or the local governing body.
+            2.  **IDENTIFY & LINK MASTER PLAN (MANDATORY URL VERIFICATION):**
+                a. Search for the official Master Plan document for the identified Governing Authority. State its full name and year.
+                b. You MUST find a direct, clickable URL.
+                c. VERIFICATION STEP: Before outputting the URL, verify it is a plausible, official government or authority domain.
+                d. FALLBACK: If a direct, verifiable link to a PDF document cannot be found, you MUST provide the URL to the main homepage of the identified Governing Authority.
+            3.  **DETERMINE LAND USE ZONE:** Based on the identified Master Plan and the specific locality ('${base.locality}'), you MUST make a definitive determination of the probable land use zone. Use official designations.
+            4.  **REPORT FINDINGS:** Present the information clearly in the format below.
+
+            --- START REPORT ---
+
+            <h3>1. Governing Body & Planning Documents</h3>
+            <p><strong>Primary Governing Authority:</strong> {Execute Step 1 here. State the full name of the authority.}</p>
+            <p><strong>Applicable Master Plan:</strong> {Execute Step 2a here. State the full name and year of the plan.}</p>
+            <div class="inference-box">
+                <p><strong>Source Documents (Verified Link):</strong></p>
+                <ul>
+                    <li><strong>Master Plan / Authority Website:</strong> <a href="{Execute Step 2b, 2c, 2d here. Provide the verified, direct URL}" target="_blank">{Link to Official Document/Website}</a></li>
+                </ul>
+            </div>
+
+            <h3>2. Land Use Zone Determination</h3>
+            <p><strong>Diagnosed Land Use Zone:</strong> <strong>{Execute Step 3 here. State the specific land use code and name.}</strong></p>
+            <div class="inference-box">
+                <p><strong>Justification by RP:</strong> {Provide a brief justification for your determination}.</p>
+            </div>
+            <p><strong>Permissible Activities in this Zone:</strong> Based on the specific zone identified above, list the primary development activities that are explicitly permitted.</p>
+            <p><strong>Prohibited Activities in this Zone:</strong> List activities that are explicitly prohibited or restricted in the identified zone.</p>
+            
+            <h3>3. Overlay Analysis (Data-Driven)</h3>
+            <p>RP is checking for special planning overlays that may affect development. Provide specific, quantifiable data.</p>
+            <ul>
+                <li><strong>Transit-Oriented Development (TOD) Corridor:</strong> {State if the location is within a designated TOD zone. Specify the distance to the nearest metro/RRTS station. Explain the benefits. If not applicable, state 'The location does not fall within a designated TOD corridor.'}</li>
+                <li><strong>Regulated Zones:</strong> {State if the site is near sensitive areas like an airport, an ASI monument (specify the prohibited/regulated distance), or an eco-sensitive zone. Explain the restrictions. If not applicable, state 'RP's initial check indicates no major regulated zones are impacting the site.'}</li>
+            </ul>
+
+            <div class="verdict-box">
+                <h3>Disclaimer from RP</h3>
+                <p>This is a preliminary analysis by RP based on publicly known planning documents. Official confirmation of the land use for the specific plot (Khasra number) must be obtained from the respective planning authority through a formal application.</p>
+            </div>
+        `;
+        await generateAIResponse(prompt, 'zoningOutput');
+    }
+    
+    function downloadWord() {
+        // --- This function creates a Word document (.doc) ---
+        
+        let locationInfoHtml = '';
+        if (verifiedLocationData) {
+            locationInfoHtml = `
+                <div>
+                    <h2>Location Verification Details</h2>
+                    <p>
+                        <strong>Locality:</strong> ${verifiedLocationData.locality}<br>
+                        <strong>Tehsil / Taluk:</strong> ${verifiedLocationData.tehsil}<br>
+                        <strong>District:</strong> ${verifiedLocationData.district}<br>
+                        <strong>State:</strong> ${verifiedLocationData.state}<br>
+                        <strong>Coordinates:</strong> ${verifiedLocationData.coords.lat}, ${verifiedLocationData.coords.lng}
+                    </p>
+                </div>
+            `;
+        }
+
+
+        // 1. Gather all the styles from the page
+        let styles = `
+            body { font-family: 'Lato', sans-serif; font-size: 11pt; line-height: 1.5; color: #333; }
+            h1 { font-size: 22pt; font-weight: 900; color: #003366; text-align: center; }
+            h2 { font-size: 16pt; color: #007bff; border-bottom: 1px solid #ccc; padding-bottom: 5px; margin-top: 20px; }
+            h3 { font-size: 14pt; color: #003366; font-weight: 700; margin-top: 20px; }
+            h4 { font-size: 12pt; color: #0056b3; }
+            p, li { color: #555; }
+            table { width:100%; border-collapse: collapse; font-size: 10pt; margin-top: 15px; }
+            th { border: 1px solid #ccc; padding: 5px; text-align: left; background-color:#e9ecef; }
+            td { border: 1px solid #ccc; padding: 5px; }
+        `;
+
+        // 2. Collect the HTML content from all report sections
+        const feasibilityReport = `<div><h2>Feasibility Analysis Report</h2>${document.getElementById('feasibilityOutput').innerHTML}</div>`;
+        const marketReport = `<div><h2>Market & Competitor Analysis Report</h2>${document.getElementById('marketOutput').innerHTML}</div>`;
+        const infraReport = `<div><h2>Infrastructure & Connectivity Report</h2>${document.getElementById('infraOutput').innerHTML}</div>`;
+        const legalReport = `<div><h2>Legal & Regulatory Report</h2>${document.getElementById('legalOutput').innerHTML}</div>`;
+        const zoningReport = `<div><h2>Land Use & Zoning Report</h2>${document.getElementById('zoningOutput').innerHTML}</div>`;
+        const urlInfo = `<h2>Analysis for URL:</h2><p>${document.getElementById('mapUrlInput').value || 'N/A'}</p><hr>`;
+        const finalDisclaimer = `
+            <div>
+                <hr>
+                <h2>Disclaimer</h2>
+                <p>This report was generated by an AI assistant using publicly available data. It is intended for preliminary informational purposes only and does not constitute legal, financial, or professional advice. All data, including but not limited to pricing, legal statutes, and planning details, must be independently verified with the appropriate authorities and professionals before making any investment decisions. The creators of this tool assume no liability for any actions taken based on the information provided in this report.</p>
+            </div>
+        `;
+
+        // 3. Assemble the full HTML for the Word document
+        const fullHtml = `
+            <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+            <head>
+                <meta charset='utf-8'>
+                <title>RP Real Estate Analysis Report</title>
+                <!--[if gte mso 9]>
+                <xml>
+                    <w:WordDocument>
+                        <w:View>Print</w:View>
+                        <w:Zoom>90</w:Zoom>
+                        <w:DoNotOptimizeForBrowser/>
+                    </w:WordDocument>
+                </xml>
+                <![endif]-->
+                <style>
+                    ${styles}
+                </style>
+            </head>
+            <body>
+                <h1>RP Real Estate Feasibility & Market Analysis Report</h1>
+                <hr>
+                ${urlInfo}
+                ${locationInfoHtml}
+                ${feasibilityReport}
+                ${marketReport}
+                ${infraReport}
+                ${legalReport}
+                ${zoningReport}
+                ${finalDisclaimer}
+            </body>
+            </html>
+        `;
+
+        // 4. Create a Blob and trigger the download
+        const blob = new Blob(['\ufeff', fullHtml], {
+            type: 'application/msword'
+        });
+        
+        const url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(fullHtml);
+        
+        const filename = 'rp_real_estate_analysis.doc';
+        
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // --- CAPTCHA Functions ---
+    function generateCaptcha() {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let captcha = '';
+        for (let i = 0; i < 6; i++) {
+            captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        currentCaptcha = captcha;
+        document.getElementById('captchaText').textContent = currentCaptcha;
+    }
+
+    function showCaptcha() {
+        document.getElementById('captchaInput').value = '';
+        document.getElementById('captchaError').style.display = 'none';
+        generateCaptcha();
+        document.getElementById('captchaModal').style.display = 'block';
+    }
+
+    function hideCaptcha() {
+        document.getElementById('captchaModal').style.display = 'none';
+    }
+
+    function verifyCaptcha() {
+        const userInput = document.getElementById('captchaInput').value;
+        if (userInput.toLowerCase() === currentCaptcha.toLowerCase()) {
+            hideCaptcha();
+            downloadWord();
+        } else {
+            document.getElementById('captchaError').style.display = 'block';
+            generateCaptcha();
+        }
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>
